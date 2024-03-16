@@ -167,10 +167,10 @@ def get_location_datas(world: Optional[MultiWorld], player: Optional[int]):
         LocationData("Mines", "Mines: Unga", 8680125, 335, lambda state: state.has("Super Missile", player) and logic.AM2R_can_bomb(state) and (state.has("Space Jump", player) or state.has("Spider Ball", player))),
         LocationData("Mines", "Mines: Gunga", 8680126, 336, lambda state: state.has("Super Missile", player) and logic.AM2R_can_bomb(state) and (state.has("Space Jump", player) or state.has("Spider Ball", player))),
 
-        LocationData("The Tower", "The Tower: Patricia", 8680127, 337, logic.AM2R_can_fly),  # Mahan
-        LocationData("The Tower", "The Tower: Variable \"GUH\"", 8680128, 338, logic.AM2R_can_spider),  # ANX
+        LocationData("The Tower", "The Tower: Patricia", 8680127, 337, lambda state: state.has("Space Jump", player)),  # Mahan
+        LocationData("The Tower", "The Tower: Variable \"GUH\"", 8680128, 338, lambda state: logic.AM2R_can_spider or state.has("Speed Booster")),  # ANX
         LocationData("The Tower", "Ruler of The Tower: Slagathor", 8680129, 340, lambda state: state.has("Power Bomb", player, 3) or state.has("Bombs", player)),  # Rawsome
-        LocationData("The Tower", "The Tower: Mr.Sandman", 8680130, 339, lambda state: state.has("Space Jump", player) or state.has("Hi Jump") and state.has("Speed Booster")),  # Xander
+        LocationData("The Tower", "The Tower: Mr.Sandman", 8680130, 339, lambda state: state.has("Space Jump", player) or state.has("Hi Jump", player) and state.has("Speed Booster", player)),  # Xander
         LocationData("The Tower", "The Tower: Anakin", 8680131, 341, lambda state: state.has("Space Jump", player)),  # Xander
         LocationData("The Tower", "The Tower: Xander", 8680132, 342, lambda state: state.has("Space Jump", player)),
 
