@@ -98,7 +98,7 @@ def get_location_datas(world: Optional[MultiWorld], player: Optional[int]):
         LocationData("The Tower", "The Tower: Dark Maze",  8680063, 252, lambda state: state.has("Power Bomb", player, 4) or state.has("Bombs", player) and state.has("Spider Ball", player)),  # bomb
         LocationData("The Tower", "The Tower: After Dark Maze",  8680064, 251, lambda state: state.has("Power Bomb", player, 4) or state.has("Bombs", player) and state.has("Spider Ball", player)),
         LocationData("The Tower", "The Tower: Plasma Beam",  8680065, 14, lambda state: logic.AM2R_can_bomb(state) and state.can_reach("Tester", "Region", player)),
-        LocationData("The Tower", "The Tower: After Tester",  8680066, 256, lambda state: state.has("Power Bomb", player)),  # pb
+        LocationData("The Tower", "The Tower: After Tester",  8680066, 256, lambda state: state.has("Power Bomb", player) and state.can_reach("Tester", "Region", player)),  # pb
         LocationData("The Tower", "The Tower: Outside Reactor",  8680067, 258, lambda state: state.has("Power Bomb", player)),  # pb
 
         LocationData("Geothermal", "The Tower: Geothermal Reactor",  8680068, 253, lambda state: state.has("Power Bomb", player) and state.has("Speed Booster", player) and logic.AM2R_can_schmove(state)),  # pb + speed + spider
